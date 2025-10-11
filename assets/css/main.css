@@ -4109,3 +4109,59 @@ input, select, textarea {
 					}
 
 	}
+/* === CUSTOM OVERRIDES === */
+
+/* Make text area wider (55-60%) */
+.spotlight .content {
+  width: 60% !important;
+}
+
+/* Adjust alternating layout to stay balanced */
+.spotlight.style1 .content,
+.spotlight.style2 .content,
+.spotlight.style3 .content {
+  padding: 3rem !important;
+}
+
+/* Profile image circle and hero adjustments */
+.profile-image {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.profile-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+}
+
+/* Center hero text */
+#home .content {
+  text-align: center !important;
+}
+
+/* Project gallery captions */
+.project-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.project-gallery img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+.caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: -0.5rem;
+}
+
+/* Navbar link spacing */
+#nav ul li {
+  margin: 0 0.5rem;
+}
