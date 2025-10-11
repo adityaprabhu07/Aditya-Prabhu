@@ -4109,27 +4109,49 @@ input, select, textarea {
 					}
 
 	}
-/* === CUSTOM OVERRIDES === */
+/* === CUSTOM OVERRIDES (v2) === */
 
-/* Make text area wider (55-60%) */
+/* --- General Project Text Width --- */
 .spotlight .content {
-  width: 60% !important;
+  width: 50% !important;
+  line-height: 1.5 !important;
 }
 
-/* Adjust alternating layout to stay balanced */
+/* Slightly reduce vertical gaps between paragraphs/lists */
+.spotlight .content p,
+.spotlight .content ul,
+.spotlight .content li {
+  margin-bottom: 0.8rem !important;
+}
+
+/* Adjust alternating layout padding */
 .spotlight.style1 .content,
 .spotlight.style2 .content,
 .spotlight.style3 .content {
-  padding: 3rem !important;
+  padding: 2.5rem !important;
 }
 
-/* Profile image circle and hero adjustments */
-.profile-image {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
+/* --- HERO SECTION --- */
+#home {
+  padding: 6rem 0 5rem 0 !important; /* top/bottom spacing */
 }
-.profile-image img {
+#home .banner .content {
+  margin-top: 2rem !important;
+}
+
+.hero-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.hero-flex .profile-image {
+  flex: 0 0 200px;
+}
+
+.hero-flex .profile-image img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -4137,12 +4159,25 @@ input, select, textarea {
   border: 4px solid #fff;
 }
 
-/* Center hero text */
-#home .content {
-  text-align: center !important;
+.hero-description {
+  max-width: 450px;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ddd;
 }
 
-/* Project gallery captions */
+/* Remove extra floating text */
+#home .content h2 + p {
+  display: none !important;
+}
+
+/* Center navbar links nicely */
+#nav ul li {
+  margin: 0 0.5rem;
+}
+
+/* Project gallery captions and spacing */
 .project-gallery {
   display: flex;
   flex-direction: column;
@@ -4159,9 +4194,4 @@ input, select, textarea {
   font-size: 0.9rem;
   color: #ccc;
   margin-top: -0.5rem;
-}
-
-/* Navbar link spacing */
-#nav ul li {
-  margin: 0 0.5rem;
 }
