@@ -6,60 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    <style>
-      /* --- Custom Styling Adjustments --- */
-      .content {
-        width: 55%;
-      }
-
-      .spotlight .content {
-        width: 55%;
-      }
-
-      .project-gallery {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
-
-      .project-gallery img {
-        width: 100%;
-        border-radius: 0.5rem;
-      }
-
-      .caption {
-        text-align: center;
-        font-size: 0.9rem;
-        color: #ccc;
-        margin-top: -0.5rem;
-      }
-
-      .profile-image {
-        display: flex;
-        justify-content: center;
-        margin-top: 2rem;
-      }
-
-      .profile-image img {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid #fff;
-      }
-
-      /* Center the name and hero text */
-      #home .content {
-        text-align: center;
-      }
-
-      /* Make navbar links a bit spaced */
-      #nav ul li {
-        margin: 0 0.5rem;
-      }
-    </style>
   </head>
 
   <body class="is-preload landing">
@@ -83,24 +29,23 @@
 
       <!-- Hero Section -->
       <section id="home" class="banner">
-  <div class="content">
-    <header>
-      <h2>Aditya Prabhu</h2>
-    </header>
+        <div class="content">
+          <header>
+            <h2>Aditya Prabhu</h2>
+          </header>
 
-    <div class="hero-flex">
-      <div class="profile-image">
-        <img src="images/profile.jpg" alt="Aditya Prabhu" />
-      </div>
-      <div class="hero-description">
-        <p>
-          I'm a Mechanical Engineer major at UIUC who enjoys building robots and working with pretty much anything automotive. Below is a collection of the project I have worked in the past along with some ongoing projects.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
+          <div class="hero-flex">
+            <div class="profile-image">
+              <img src="./images/profile.jpg" alt="Aditya Prabhu" onerror="this.style.border='2px solid red'; this.alt='Image not found: profile.jpg';" />
+            </div>
+            <div class="hero-description">
+              <p>
+                I'm a mechanical engineer passionate about bridging design and function through robotics, manufacturing, and sustainable systems. I enjoy building projects that combine creativity with engineering rigor — from composite structures to autonomous systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- ======================= PROJECT 1 ======================= -->
       <section id="fsae" class="spotlight style1 right">
@@ -131,11 +76,11 @@
         </div>
         <span class="image fit main">
           <div class="project-gallery">
-            <img src="images/fsae1.png" alt="Topology Optimization with loads">
+            <img src="./images/fsae1.png" alt="Topology Optimization with loads" onerror="this.style.border='2px solid red';" />
             <p class="caption">Insert with rib on leading edge</p>
-            <img src="images/fsae2.png" alt="Insert with rib on leading edge">
+            <img src="./images/fsae2.png" alt="Insert with rib on leading edge" onerror="this.style.border='2px solid red';" />
             <p class="caption">Insert with structural screws</p>
-            <img src="images/fsae3.png" alt="Insert with structural screws">
+            <img src="./images/fsae3.png" alt="Insert with structural screws" onerror="this.style.border='2px solid red';" />
             <p class="caption">Topology Optimization with loads</p>
           </div>
         </span>
@@ -145,9 +90,9 @@
       <section id="vexu" class="spotlight style2 left">
         <span class="image fit main">
           <div class="project-gallery">
-            <img src="images/vexu1.jpeg" alt="Wheel Hub inside Mold Assembly">
+            <img src="./images/vexu1.jpeg" alt="Wheel Hub inside Mold Assembly" onerror="this.style.border='2px solid red';" />
             <p class="caption">Wheel Hub inside Mold Assembly</p>
-            <img src="images/vexu2.jpeg" alt="Molded Silicone Traction Wheel">
+            <img src="./images/vexu2.jpeg" alt="Molded Silicone Traction Wheel" onerror="this.style.border='2px solid red';" />
             <p class="caption">Molded Silicone Traction Wheel</p>
           </div>
         </span>
@@ -197,11 +142,11 @@
         </div>
         <span class="image fit main">
           <div class="project-gallery">
-            <img src="images/smartbin1.png" alt="Topology Optimization after constraints">
+            <img src="./images/smartbin1.png" alt="Topology Optimization after constraints" onerror="this.style.border='2px solid red';" />
             <p class="caption">Topology Optimization after constraints</p>
-            <img src="images/smartbin2.png" alt="Debossed Voronoi diagrams">
+            <img src="./images/smartbin2.png" alt="Debossed Voronoi diagrams" onerror="this.style.border='2px solid red';" />
             <p class="caption">Debossed Voronoi diagrams</p>
-            <img src="images/smartbin3.jpeg" alt="Completed Smart Bin with Raspberry Pi">
+            <img src="./images/smartbin3.jpeg" alt="Completed Smart Bin with Raspberry Pi" onerror="this.style.border='2px solid red';" />
             <p class="caption">Completed Smart Bin with Raspberry Pi</p>
           </div>
         </span>
@@ -211,9 +156,9 @@
       <section id="vex" class="spotlight style1 left">
         <span class="image fit main">
           <div class="project-gallery">
-            <img src="images/vex1.png" alt="Preliminary CAD for Worlds 2025">
+            <img src="./images/vex1.png" alt="Preliminary CAD for Worlds 2025" onerror="this.style.border='2px solid red';" />
             <p class="caption">Preliminary CAD for Worlds 2025</p>
-            <img src="images/vex2.jpg" alt="Completed Worlds Robot with dyed Polycarbonate">
+            <img src="./images/vex2.jpg" alt="Completed Worlds Robot with dyed Polycarbonate" onerror="this.style.border='2px solid red';" />
             <p class="caption">Completed Worlds Robot with dyed Polycarbonate</p>
           </div>
         </span>
@@ -234,7 +179,7 @@
           <h3>Impact</h3>
           <ul>
             <li>Robots achieved 2×World Qualifications; 4×Tournament Championships; 6×Skills Championships; 2×Excellence Awards</li>
-            <li>Advanced team’s engineering capabilities while contributing technical expertise</li>
+            <li>Advanced team's engineering capabilities while contributing technical expertise</li>
           </ul>
           <p><strong>Relevant Skills:</strong> Fusion 360 CAD, Mechanical Design, Competitive Engineering</p>
         </div>
@@ -265,11 +210,11 @@
         </div>
         <span class="image fit main">
           <div class="project-gallery">
-            <img src="images/truck1.png" alt="Telescoping Rod showing max turn angle of 80 degrees">
+            <img src="./images/truck1.png" alt="Telescoping Rod showing max turn angle of 80 degrees" onerror="this.style.border='2px solid red';" />
             <p class="caption">Telescoping Rod showing maximum turn angle of 80°</p>
-            <img src="images/truck2.png" alt="Particle Flow - Control">
+            <img src="./images/truck2.png" alt="Particle Flow - Control" onerror="this.style.border='2px solid red';" />
             <p class="caption">Particle Flow - Control</p>
-            <img src="images/truck3.png" alt="Particle Flow - Hybrid Fairing">
+            <img src="./images/truck3.png" alt="Particle Flow - Hybrid Fairing" onerror="this.style.border='2px solid red';" />
             <p class="caption">Particle Flow - Hybrid Fairing</p>
           </div>
         </span>
@@ -279,7 +224,7 @@
       <section id="hydroponics" class="spotlight style3 left">
         <span class="image fit main">
           <div class="project-gallery">
-            <img src="images/hydroponics1.png" alt="Hydroponics Kit CAD Assembly">
+            <img src="./images/hydroponics1.png" alt="Hydroponics Kit CAD Assembly" onerror="this.style.border='2px solid red';" />
             <p class="caption">Hydroponics Kit CAD assembly</p>
           </div>
         </span>
@@ -309,7 +254,7 @@
         <div class="container">
           <header>
             <h2>Contact</h2>
-            <p>Let’s connect and talk engineering, design, or collaboration opportunities.</p>
+            <p>Let's connect and talk engineering, design, or collaboration opportunities.</p>
           </header>
           <ul class="icons">
             <li><a href="mailto:your-email@example.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
@@ -337,7 +282,3 @@
     <script src="assets/js/main.js"></script>
   </body>
 </html>
-
-
-
-
