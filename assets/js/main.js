@@ -149,7 +149,17 @@
 					var top, bottom, mode;
 
 					// Use main <img>'s src as this spotlight's background.
-						$this.css('background-image', 'url("' + $this.find('.image.main > img').attr('src') + '")');
+						// Skip background assignment since we're using inline project galleries.
+						var img = $this.find('.image.main > img');
+						
+						if (img.length > 0 && img.attr('src')) {
+						  // Only set background if there's a real image (for safety).
+						  $this.css('background-image', 'url("' + img.attr('src') + '")');
+						} else {
+						  // Otherwise, clear it entirely to prevent "undefined" backgrounds.
+						  $this.css('background-image', 'none');
+						}
+
 
 					// Side-specific scrollex tweaks.
 						if ($this.hasClass('top')) {
