@@ -267,11 +267,21 @@
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            max-width: 480px;
         }
 
         .image-container {
             display: flex;
             flex-direction: column;
+        }
+
+        .image-container img {
+            filter: grayscale(100%);
+            transition: filter 0.6s ease-out;
+        }
+
+        .image-container.image-visible img {
+            filter: grayscale(0%);
         }
 
         .image-placeholder {
@@ -664,22 +674,42 @@
     </footer>
 
     <script>
-        // Fade-in animation on scroll
-        const observerOptions = {
+        // Fade-in animation on scroll for projects
+        const projectObserverOptions = {
             threshold: 0.15,
             rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const projectObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, projectObserverOptions);
 
         document.querySelectorAll('.project').forEach(project => {
-            observer.observe(project);
+            projectObserver.observe(project);
+        });
+
+        // Grayscale to color animation for images
+        const imageObserverOptions = {
+            threshold: 0.5,
+            rootMargin: '-15% 0px -15% 0px'
+        };
+
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('image-visible');
+                } else {
+                    entry.target.classList.remove('image-visible');
+                }
+            });
+        }, imageObserverOptions);
+
+        document.querySelectorAll('.image-container').forEach(container => {
+            imageObserver.observe(container);
         });
     </script>
 </body>
