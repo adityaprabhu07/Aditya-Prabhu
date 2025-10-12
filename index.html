@@ -6,6 +6,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+/* ====== FINAL IMAGE + LAYOUT FIX ====== */
+
+/* Ensure spotlight sections display correctly */
+.spotlight {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+  background: none !important;
+}
+
+/* Alternate image and text alignment */
+.spotlight.style1.right .content { order: 1; }
+.spotlight.style1.right .image { order: 2; }
+.spotlight.style2.left .content { order: 2; }
+.spotlight.style2.left .image { order: 1; }
+.spotlight.style3.right .content { order: 1; }
+.spotlight.style3.right .image { order: 2; }
+.spotlight.style3.left .content { order: 2; }
+.spotlight.style3.left .image { order: 1; }
+
+/* Content box layout */
+.spotlight .content {
+  flex: 1 1 45%;
+  max-width: 600px;
+  padding: 2rem;
+  text-align: left;
+}
+
+/* Image gallery container */
+.project-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex: 1 1 45%;
+  max-width: 600px;
+  padding: 1rem;
+}
+
+/* Image styling */
+.project-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  object-fit: contain;
+  background: #111;
+}
+
+/* Caption styling */
+.caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: -0.25rem;
+}
+
+/* Tighten text spacing */
+.spotlight .content p,
+.spotlight .content ul {
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
+}
+
+/* Ensure nothing covers images anymore */
+.spotlight::before,
+.spotlight::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Hero section spacing */
+#home {
+  padding-top: 8rem;
+  padding-bottom: 10rem;
+}
+
+.hero-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.profile-image img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+}
+
+.hero-description {
+  flex: 1;
+  max-width: 450px;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Basic responsive tweak */
+@media (max-width: 900px) {
+  .spotlight {
+    flex-direction: column;
+  }
+
+  .spotlight .content,
+  .project-gallery {
+    flex: 1 1 100%;
+    max-width: 90%;
+  }
+}
+</style>
+
+    <!--
     <style>  
   /* Make the hero section taller */
   /* Force all images inside projects to show */
@@ -131,7 +253,7 @@ img[alt="test image"] { border: 3px solid lime !important; }
     margin-bottom: 0.75rem;
   }
 </style>
-
+-->
   </head>
 
   <body class="is-preload landing">
@@ -408,6 +530,7 @@ img[alt="test image"] { border: 3px solid lime !important; }
     <script src="assets/js/main.js"></script>
   </body>
 </html>
+
 
 
 
