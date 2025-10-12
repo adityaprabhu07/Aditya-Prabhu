@@ -9,6 +9,61 @@
     <style>  
   /* Make the hero section taller */
   /* Force all images inside projects to show */
+/* FORCE Images visible and on top */
+.project-gallery,
+.project-gallery img,
+.spotlight .image,
+.spotlight .image * {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  z-index: 5000 !important;
+  position: relative !important;
+}
+
+/* Hide any pseudo overlays that might cover images */
+.spotlight::before,
+.spotlight::after,
+.spotlight .image::before,
+.spotlight .image::after,
+.spotlight .image.fit.main::before,
+.spotlight .image.fit.main::after {
+  display: none !important;
+  content: none !important;
+  pointer-events: none !important;
+}
+
+/* Remove section background so images are not hidden behind it */
+.spotlight {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+/* If template hides img by targeting .image > img, override that specifically */
+.image > img,
+.image.main > img,
+.spotlight .image img {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 5001 !important;
+}
+
+/* In case images are clipped by parent height, allow natural height */
+.spotlight {
+  min-height: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Slight safety: show the test image if used */
+img[alt="test image"] { border: 3px solid lime !important; }
+
   .project-gallery img,
   .spotlight img {
     display: block !important;
@@ -353,6 +408,7 @@
     <script src="assets/js/main.js"></script>
   </body>
 </html>
+
 
 
 
