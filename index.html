@@ -8,6 +8,25 @@
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <style>  
   /* Make the hero section taller */
+  /* Force all images inside projects to show */
+  .project-gallery img,
+  .spotlight img {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  /* Remove template background overrides */
+  .spotlight .image.fit.main {
+    background: none !important;
+  }
+
+  /* Make sure parallax doesn’t cover the gallery */
+  .spotlight {
+    background-image: none !important;
+  }
   #home {
     padding-top: 8rem;
     padding-bottom: 10rem;
@@ -334,6 +353,7 @@
     <script src="assets/js/main.js"></script>
   </body>
 </html>
+
 
 
 
