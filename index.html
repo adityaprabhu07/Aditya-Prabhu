@@ -1,541 +1,686 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Aditya Prabhu | Engineering Portfolio</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Prabhu - Engineering Portfolio</title>
     <style>
-/* ====== FINAL IMAGE + LAYOUT FIX ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Ensure spotlight sections display correctly */
-.spotlight {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 0;
-  background: none !important;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* Alternate image and text alignment */
-.spotlight.style1.right .content { order: 1; }
-.spotlight.style1.right .image { order: 2; }
-.spotlight.style2.left .content { order: 2; }
-.spotlight.style2.left .image { order: 1; }
-.spotlight.style3.right .content { order: 1; }
-.spotlight.style3.right .image { order: 2; }
-.spotlight.style3.left .content { order: 2; }
-.spotlight.style3.left .image { order: 1; }
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
 
-/* Content box layout */
-.spotlight .content {
-  flex: 1 1 45%;
-  max-width: 600px;
-  padding: 2rem;
-  text-align: left;
-}
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            background: linear-gradient(135deg, #2d2d2d 0%, #3a3a52 30%, #5a4a7a 60%, #7e3f8f 100%);
+            background-attachment: fixed;
+            color: #e8e8e8;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-/* Image gallery container */
-.project-gallery {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  flex: 1 1 45%;
-  max-width: 600px;
-  padding: 1rem;
-}
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(20, 20, 30, 0.85);
+            backdrop-filter: blur(15px);
+            padding: 1.2rem 3rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-/* Image styling */
-.project-gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  object-fit: contain;
-  background: #111;
-}
+        .nav-name {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            letter-spacing: 0.5px;
+        }
 
-/* Caption styling */
-.caption {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #ccc;
-  margin-top: -0.25rem;
-}
+        .nav-name:hover {
+            color: #b8a0d6;
+        }
 
-/* Tighten text spacing */
-.spotlight .content p,
-.spotlight .content ul {
-  line-height: 1.45;
-  margin-bottom: 0.75rem;
-}
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
 
-/* Ensure nothing covers images anymore */
-.spotlight::before,
-.spotlight::after {
-  display: none !important;
-  content: none !important;
-}
+        .nav-links a {
+            color: #d8d8d8;
+            text-decoration: none;
+            font-weight: 300;
+            transition: color 0.3s;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
 
-/* Hero section spacing */
-#home {
-  padding-top: 8rem;
-  padding-bottom: 10rem;
-}
+        .nav-links a:hover {
+            color: #b8a0d6;
+        }
 
-.hero-flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-  max-width: 900px;
-  margin: 0 auto;
-}
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 3rem 4rem;
+            opacity: 0;
+            animation: fadeInHero 1s ease-out forwards;
+        }
 
-.profile-image img {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #fff;
-}
+        @keyframes fadeInHero {
+            to {
+                opacity: 1;
+            }
+        }
 
-.hero-description {
-  flex: 1;
-  max-width: 450px;
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: left;
-}
+        .hero-content {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+        }
 
-/* Basic responsive tweak */
-@media (max-width: 900px) {
-  .spotlight {
-    flex-direction: column;
-  }
+        .profile-pic {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #a0a0a0;
+            border: 2px solid rgba(184, 160, 214, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
 
-  .spotlight .content,
-  .project-gallery {
-    flex: 1 1 100%;
-    max-width: 90%;
-  }
-}
-</style>
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
 
-    <!--
-    <style>  
-  /* Make the hero section taller */
-  /* Force all images inside projects to show */
-/* FORCE Images visible and on top */
-.project-gallery,
-.project-gallery img,
-.spotlight .image,
-.spotlight .image * {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  height: auto !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: visible !important;
-  z-index: 5000 !important;
-  position: relative !important;
-}
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #d8d8d8;
+            line-height: 1.8;
+        }
 
-/* Hide any pseudo overlays that might cover images */
-.spotlight::before,
-.spotlight::after,
-.spotlight .image::before,
-.spotlight .image::after,
-.spotlight .image.fit.main::before,
-.spotlight .image.fit.main::after {
-  display: none !important;
-  content: none !important;
-  pointer-events: none !important;
-}
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
 
-/* Remove section background so images are not hidden behind it */
-.spotlight {
-  background-image: none !important;
-  background-color: transparent !important;
-}
+        .contact-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 1.8rem;
+            background: rgba(184, 160, 214, 0.15);
+            border: 1.5px solid rgba(184, 160, 214, 0.5);
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
 
-/* If template hides img by targeting .image > img, override that specifically */
-.image > img,
-.image.main > img,
-.spotlight .image img {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  position: relative !important;
-  z-index: 5001 !important;
-}
+        .contact-links a:hover {
+            background: rgba(184, 160, 214, 0.25);
+            transform: translateY(-2px);
+            border-color: rgba(184, 160, 214, 0.8);
+        }
 
-/* In case images are clipped by parent height, allow natural height */
-.spotlight {
-  min-height: auto !important;
-  height: auto !important;
-  overflow: visible !important;
-}
+        .linkedin-icon {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
 
-/* Slight safety: show the test image if used */
-img[alt="test image"] { border: 3px solid lime !important; }
+        /* Project Sections */
+        .project {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 3rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            position: relative;
+        }
 
-  .project-gallery img,
-  .spotlight img {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    height: auto !important;
-    width: 100% !important;
-  }
+        .project::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(184, 160, 214, 0.5), transparent);
+        }
 
-  /* Remove template background overrides */
-  .spotlight .image.fit.main {
-    background: none !important;
-  }
+        .project:last-of-type::after {
+            display: none;
+        }
 
-  /* Make sure parallax doesn’t cover the gallery */
-  .spotlight {
-    background-image: none !important;
-  }
-  #home {
-    padding-top: 8rem;
-    padding-bottom: 10rem;
-    background: radial-gradient(circle at top, #111 0%, #000 100%);
-  }
+        .project.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-  .hero-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-    max-width: 900px;
-    margin: 0 auto;
-  }
+        .project-content {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
 
-  .profile-image img {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #fff;
-  }
+        .project-content.reverse {
+            direction: rtl;
+        }
 
-  .hero-description {
-    flex: 1;
-    max-width: 450px;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
+        .project-content.reverse > * {
+            direction: ltr;
+        }
 
-  /* Navbar spacing fix */
-  #nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+        .project-text h2 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
 
-  #nav ul li {
-    margin: 0 0.75rem;
-  }
+        .project-subtitle {
+            font-size: 1.15rem;
+            color: #b8a0d6;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
 
-  /* Line spacing fix */
-  .spotlight .content p,
-  .spotlight .content ul {
-    line-height: 1.45;
-    margin-bottom: 0.75rem;
-  }
-</style>
--->
-  </head>
+        .project-section {
+            margin-bottom: 2rem;
+        }
 
-  <body class="is-preload landing">
-    <div id="page-wrapper">
+        .project-section h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: #b8a0d6;
+            font-weight: 500;
+        }
 
-      <!-- Header -->
-      <header id="header">
-        <h1 id="logo"><a href="#home">Aditya Prabhu</a></h1>
-        <nav id="nav">
-          <ul>
-            <li><a href="#fsae">Formula SAE</a></li>
-            <li><a href="#vexu">VEX U</a></li>
-            <li><a href="#smartbin">Smart Bin</a></li>
-            <li><a href="#vex">VEX Robotics</a></li>
-            <li><a href="#truck">Hybrid Truck Fairing</a></li>
-            <li><a href="#hydroponics">Hydroponics Kit</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+        .project-section ul {
+            margin-left: 1.5rem;
+            color: #d8d8d8;
+        }
 
-      <!-- Hero Section -->
-      <section id="home" class="banner">
-        <div class="content">
-          <header>
-            <h2>Aditya Prabhu</h2>
-          </header>
+        .project-section li {
+            margin-bottom: 0.6rem;
+            font-size: 1.05rem;
+        }
 
-          <div class="hero-flex">
-            <div class="profile-image">
-              <img src="./images/profile.jpeg" alt="Aditya Prabhu" onerror="this.style.border='2px solid red'; this.alt='Image not found: profile.jpeg';" />
-            </div>
-            <div class="hero-description">
-              <p>
-                Hi! I'm a Mechanical Engineering major at UIUC passionate about robotics and pretty much anything automotive.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        .skills {
+            margin-top: 2rem;
+            padding: 1.2rem 1.5rem;
+            background: rgba(184, 160, 214, 0.12);
+            border-left: 3px solid #b8a0d6;
+            border-radius: 4px;
+            font-size: 1.05rem;
+        }
 
-      <!-- ======================= PROJECT 1 ======================= -->
-      <section id="fsae" class="spotlight style1 right">
-        <span class="image fit main">
-          <div class="project-gallery">
-            <img src="./images/fsae1.png" alt="Topology Optimization with loads" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Insert with rib on leading edge</p>
-            <img src="./images/fsae2.png" alt="Insert with rib on leading edge" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Insert with structural screws</p>
-            <img src="./images/fsae3.png" alt="Insert with structural screws" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Topology Optimization with loads</p>
-          </div>
-        </span>
-        <div class="content">
-          <header>
-            <h2>Formula SAE</h2>
-            <p>Illini Electric Motorsports – Aerodynamic Structures</p>
-          </header>
-          <h3>Problem</h3>
-          <p>Carbon-fiber front wing is hollow, so nothing can be mounted to it directly.</p>
-          <h3>Solution</h3>
-          <ul>
-            <li>Designed two structural insert variants:
-              <ul>
-                <li>Structural ribs on the leading edge</li>
-                <li>Screws as structural fasteners</li>
-              </ul>
-            </li>
-            <li>Engineered inserts in Creo for mounting carbon-fiber front wing elements</li>
-            <li>Applied topology optimization to identify load paths and reduce material</li>
-          </ul>
-          <h3>Impact</h3>
-          <ul>
-            <li>Reduced weight by 25%+ over last season</li>
-            <li>Ongoing testing and validation</li>
-          </ul>
-          <p><strong>Relevant Skills:</strong> Creo CAD, Topology Optimization, ANSYS FEA</p>
-        </div>
-      </section>
+        .skills strong {
+            color: #b8a0d6;
+        }
 
-      <!-- ======================= PROJECT 2 ======================= -->
-      <section id="vexu" class="spotlight style2 left">
-        <span class="image fit main">
-          <div class="project-gallery">
-            <img src="./images/vexu1.jpeg" alt="Wheel Hub inside Mold Assembly" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Wheel Hub inside Mold Assembly</p>
-            <img src="./images/vexu2.jpeg" alt="Molded Silicone Traction Wheel" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Molded Silicone Traction Wheel</p>
-          </div>
-        </span>
-        <div class="content">
-          <header>
-            <h2>VEX U</h2>
-            <p>Illini VEX Robotics – Chassis</p>
-          </header>
-          <h3>Problem</h3>
-          <p>Robot can be pushed sideways because of omni-directional wheels, reducing its defensive capabilities.</p>
-          <h3>Solution</h3>
-          <ul>
-            <li>Developed a custom 60A molded silicone traction wheel with a 3D-printed 3-piece mold</li>
-            <li>Engineered lightweight hub assembly and sawtooth tread pattern for performance</li>
-            <li>Optimized chassis design for weight reduction, improving robot agility and efficiency</li>
-          </ul>
-          <h3>Impact</h3>
-          <ul>
-            <li>Improved lateral resistance by 55%+ compared to OEM wheels</li>
-          </ul>
-          <p><strong>Relevant Skills:</strong> Fusion CAD, Silicone Molding</p>
-        </div>
-      </section>
+        /* Image Gallery */
+        .image-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
 
-      <!-- ======================= PROJECT 3 ======================= -->
-      <section id="smartbin" class="spotlight style3 right">
-        <span class="image fit main">
-          <div class="project-gallery">
-            <img src="./images/smartbin1.png" alt="Topology Optimization after constraints" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Topology Optimization after constraints</p>
-            <img src="./images/smartbin2.png" alt="Debossed Voronoi diagrams" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Debossed Voronoi diagrams</p>
-            <img src="./images/smartbin3.jpeg" alt="Completed Smart Bin with Raspberry Pi" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Completed Smart Bin with Raspberry Pi</p>
-          </div>
-        </span>
-        <div class="content">
-          <header>
-            <h2>Smart Bin</h2>
-            <p>Automated Modular Waste-Sorting Attachment</p>
-          </header>
-          <h3>Problem</h3>
-          <p>Waste contamination in schools; existing smart-bins are costly and difficult to scale.</p>
-          <h3>Solution</h3>
-          <ul>
-            <li>Designed a modular attachment that fits on standard school trash cans using Fusion 360</li>
-            <li>Conducted topology optimization and used Voronoi patterns to reduce material cost without impacting rigidity</li>
-            <li>Developed an open-source platform for broader adoption and community contributions</li>
-            <li>Collaborated with NJIT Robotics and Sourland Conservancy for prototyping and outreach</li>
-          </ul>
-          <h3>Impact</h3>
-          <ul>
-            <li>Provided a low-cost, scalable design for sustainable waste management</li>
-            <li>Fostered collaboration between academic and conservation groups</li>
-          </ul>
-          <p><strong>Relevant Skills:</strong> Fusion 360 CAD, Topology Optimization, Sustainable Design</p>
-        </div>
-      </section>
+        .image-container {
+            display: flex;
+            flex-direction: column;
+        }
 
-      <!-- ======================= PROJECT 4 ======================= -->
-      <section id="vex" class="spotlight style1 left">
-        <span class="image fit main">
-          <div class="project-gallery">
-            <img src="./images/vex1.png" alt="Preliminary CAD for Worlds 2025" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Preliminary CAD for Worlds 2025</p>
-            <img src="./images/vex2.jpg" alt="Completed Worlds Robot with dyed Polycarbonate" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Completed Worlds Robot with dyed Polycarbonate</p>
-          </div>
-        </span>
-        <div class="content">
-          <header>
-            <h2>VEX Robotics</h2>
-            <p>Competitive Robotics Engineering</p>
-          </header>
-          <h3>Problem</h3>
-          <p>Competitive robotics requires innovative mechanical systems that are lightweight and reliable.</p>
-          <h3>Solution</h3>
-          <ul>
-            <li>Designed entire robots in CAD with focus on efficiency, compactness, and match readiness</li>
-            <li>Created custom polycarbonate gussets, brackets, and machining processes to reduce robot weight by 30% while increasing agility</li>
-            <li>Engineered a multi-axis spin-reversing catapult mechanism</li>
-            <li>Prototyped and iterated based on field-testing</li>
-          </ul>
-          <h3>Impact</h3>
-          <ul>
-            <li>Robots achieved 2×World Qualifications; 4×Tournament Championships; 6×Skills Championships; 2×Excellence Awards</li>
-            <li>Advanced team's engineering capabilities while contributing technical expertise</li>
-          </ul>
-          <p><strong>Relevant Skills:</strong> Fusion 360 CAD, Mechanical Design, Competitive Engineering</p>
-        </div>
-      </section>
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(184, 160, 214, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            text-align: center;
+            padding: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
 
-      <!-- ======================= PROJECT 5 ======================= -->
-      <section id="truck" class="spotlight style2 right">
-        <div class="content">
-          <header>
-            <h2>Hybrid Truck Fairing</h2>
-            <p>Reducing Drag in Tractor–Trailer Gap</p>
-          </header>
-          <h3>Problem</h3>
-          <p>Tractor–trailer gap creates air vortices and turbulence, lowering efficiency. Current rigid fairings cannot fully cover gaps without limiting trailer turning.</p>
-          <h3>Solution</h3>
-          <ul>
-            <li>Created truck + trailer CAD models with pivoting trailer geometry</li>
-            <li>Designed hybrid fairing consisting of elastic fabric and telescoping rods with ball-and-socket joints for support</li>
-            <li>Ran CFD simulations in SimScale comparing control vs. hybrid model</li>
-            <li>Developed quick-deploy system with only four attachment points</li>
-          </ul>
-          <h3>Impact</h3>
-          <ul>
-            <li>Achieved 36% reduction in drag coefficient (0.01591 → 0.01168)</li>
-            <li>Proposed scalable solution to reduce fuel use and emissions in trucking industry</li>
-          </ul>
-          <p><strong>Relevant Skills:</strong> Fusion 360 CAD, Computational Fluid Dynamics (SimScale), Aerodynamics, Mechanical Design</p>
-        </div>
-        <span class="image fit main">
-          <div class="project-gallery">
-            <img src="./images/truck1.png" alt="Telescoping Rod showing max turn angle of 80 degrees" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Telescoping Rod showing maximum turn angle of 80°</p>
-            <img src="./images/truck2.png" alt="Particle Flow - Control" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Particle Flow - Control</p>
-            <img src="./images/truck3.png" alt="Particle Flow - Hybrid Fairing" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Particle Flow - Hybrid Fairing</p>
-          </div>
-        </span>
-      </section>
+        .image-caption {
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+            color: #c0c0c0;
+            font-style: italic;
+            text-align: center;
+        }
 
-      <!-- ======================= PROJECT 6 ======================= -->
-      <section id="hydroponics" class="spotlight style3 left">
-        <span class="image fit main">
-          <div class="project-gallery">
-            <img src="./images/hydroponics1.png" alt="Hydroponics Kit CAD Assembly" onerror="this.style.border='2px solid red';" />
-            <p class="caption">Hydroponics Kit CAD assembly</p>
-          </div>
-        </span>
-        <div class="content">
-          <header>
-            <h2>Hydroponics STEM Kit</h2>
-            <p>Affordable Classroom Learning Hydroponics System</p>
-          </header>
-          <h3>Problem</h3>
-          <p>Existing hydroponics kits are expensive, complex, or not designed for learning. There is a need for a student-friendly, low-cost kit for classrooms or hobbyists.</p>
-          <h3>Solution</h3>
-          <ul>
-            <li>Researched multiple hydroponic methods (Kratky, Deep Water Culture, Nutrient Film Technique); chose Deep Water Culture (DWC) for simplicity and performance</li>
-            <li>Designed a cube-based enclosure with 3D-printed corners</li>
-            <li>Integrated LED grow lights (adjustable height, RGB spectrum)</li>
-          </ul>
-          <h3>Impact</h3>
-          <ul>
-            <li>Produced a prototype kit that simplifies hydroponics for students</li>
-          </ul>
-          <p><strong>Relevant Skills:</strong> Fusion 360 CAD, Product Design, Research, Prototyping</p>
-        </div>
-      </section>
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #a8a8a8;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(20, 20, 30, 0.3);
+        }
 
-      <!-- ======================= CONTACT ======================= -->
-      <section id="contact" class="wrapper style1 special fade">
-        <div class="container">
-          <header>
-            <h2>Contact</h2>
-            <p>Let's connect and talk engineering, design, or collaboration opportunities.</p>
-          </header>
-          <ul class="icons">
-            <li><a href="mailto:prabhu.aditya006@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-            <li><a href="https://www.linkedin.com/in/aditya-prabhu-meche" target="_blank" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-          </ul>
-        </div>
-      </section>
+        /* Responsive */
+        @media (max-width: 968px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 2rem;
+            }
 
-      <!-- Footer -->
-      <footer id="footer">
-        <ul class="copyright">
-          <li>&copy; 2025 Aditya Prabhu. All rights reserved.</li>
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+                justify-content: center;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .profile-pic {
+                margin: 0 auto;
+                width: 250px;
+                height: 250px;
+            }
+
+            .contact-links {
+                justify-content: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .project-content,
+            .project-content.reverse {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                direction: ltr;
+            }
+
+            .project-text h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#hero" class="nav-name">Aditya Prabhu</a>
+        <ul class="nav-links">
+            <li><a href="#formula-sae">Formula SAE</a></li>
+            <li><a href="#vex-u">VEX U</a></li>
+            <li><a href="#smart-bin">Smart Bin</a></li>
+            <li><a href="#vex-robotics">VEX Robotics</a></li>
+            <li><a href="#truck-fairing">Truck Fairing</a></li>
         </ul>
-      </footer>
-    </div>
+    </nav>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-  </body>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="profile-pic">
+                [Profile Picture]
+            </div>
+            <div class="hero-text">
+                <h1>Aditya Prabhu</h1>
+                <p><strong>Mechanical Engineering | Robotics | CAD | Sustainability</strong></p>
+                <p>[Add your bio description here - Who you are, what you work on, your interests and goals]</p>
+                <div class="contact-links">
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">
+                        <svg class="linkedin-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="mailto:your.email@example.com">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        Email Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formula SAE Project (Images Left, Text Right) -->
+    <section id="formula-sae" class="project">
+        <div class="project-content">
+            <div class="image-gallery">
+                <div class="image-container">
+                    <div class="image-placeholder">formula-sae-1.jpg</div>
+                    <div class="image-caption">Insert with rib on leading edge</div>
+                </div>
+                <div class="image-container">
+                    <div class="image-placeholder">formula-sae-2.jpg</div>
+                    <div class="image-caption">Insert with structural screws</div>
+                </div>
+                <div class="image-container">
+                    <div class="image-placeholder">formula-sae-3.jpg</div>
+                    <div class="image-caption">Topology Optimization with loads</div>
+                </div>
+            </div>
+            
+            <div class="project-text">
+                <h2>Formula SAE</h2>
+                <p class="project-subtitle">Illini Electric Motorsports - Aerodynamic Structures</p>
+                
+                <div class="project-section">
+                    <h3>Problem</h3>
+                    <ul>
+                        <li>Carbon-fiber front wing is hollow, so nothing can be mounted to it directly</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Solution</h3>
+                    <ul>
+                        <li>Designed two structural insert variants: Structural Ribs on the leading edge and Screws as structural fasteners</li>
+                        <li>Engineered inserts in Creo for mounting carbon-fiber front wing elements</li>
+                        <li>Applied topology optimization to identify load paths and reduce material</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Impact</h3>
+                    <ul>
+                        <li>Reduced weight by 25%+ over last season</li>
+                        <li>Ongoing testing and validation</li>
+                    </ul>
+                </div>
+
+                <div class="skills">
+                    <strong>Relevant Skills:</strong> Creo CAD, Topology Optimization, ANSYS FEA
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VEX U Project (Images Right, Text Left) -->
+    <section id="vex-u" class="project">
+        <div class="project-content reverse">
+            <div class="image-gallery">
+                <div class="image-container">
+                    <div class="image-placeholder">vex-u-1.jpg</div>
+                    <div class="image-caption">Wheel Hub inside Mold Assembly</div>
+                </div>
+                <div class="image-container">
+                    <div class="image-placeholder">vex-u-2.jpg</div>
+                    <div class="image-caption">Completed wheel with Sawtooth tread</div>
+                </div>
+            </div>
+            
+            <div class="project-text">
+                <h2>VEX U</h2>
+                <p class="project-subtitle">Illini VEX Robotics - Chassis</p>
+                
+                <div class="project-section">
+                    <h3>Problem</h3>
+                    <ul>
+                        <li>Robot can be pushed sideways because of omni-directional wheels, reducing its defensive capabilities</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Solution</h3>
+                    <ul>
+                        <li>Developed a custom 60A molded silicone traction wheel with a 3D-printed 3-piece mold</li>
+                        <li>Engineered lightweight hub assembly and sawtooth tread pattern for performance</li>
+                        <li>Optimized chassis design for weight reduction, improving robot agility and efficiency</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Impact</h3>
+                    <ul>
+                        <li>Improved lateral resistance by 55%+ compared to OEM wheels</li>
+                    </ul>
+                </div>
+
+                <div class="skills">
+                    <strong>Relevant Skills:</strong> Fusion CAD, silicone molding
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Bin Project (Images Left, Text Right) -->
+    <section id="smart-bin" class="project">
+        <div class="project-content">
+            <div class="image-gallery">
+                <div class="image-container">
+                    <div class="image-placeholder">smart-bin-1.jpg</div>
+                    <div class="image-caption">Topology Optimization after constraints</div>
+                </div>
+                <div class="image-container">
+                    <div class="image-placeholder">smart-bin-2.jpg</div>
+                    <div class="image-caption">Debossed Voronoi diagrams</div>
+                </div>
+                <div class="image-container">
+                    <div class="image-placeholder">smart-bin-3.jpg</div>
+                    <div class="image-caption">Completed Smart Bin with Raspberry PI</div>
+                </div>
+            </div>
+            
+            <div class="project-text">
+                <h2>Smart Bin</h2>
+                <p class="project-subtitle">Automated modular waste-sorting attachment</p>
+                
+                <div class="project-section">
+                    <h3>Problem</h3>
+                    <ul>
+                        <li>Waste contamination in schools</li>
+                        <li>Existing smart-bins are costly and difficult to scale</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Solution</h3>
+                    <ul>
+                        <li>Designed a modular attachment that fits on standard school trash cans using Fusion 360</li>
+                        <li>Conducted topology optimization and used Voronoi patterns to reduce material cost without impacting rigidity</li>
+                        <li>Developed an open-source platform for broader adoption and community contributions</li>
+                        <li>Collaborated with NJIT Robotics and Sourland Conservancy for prototyping and outreach</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Impact</h3>
+                    <ul>
+                        <li>Provided a low-cost, scalable design for sustainable waste management</li>
+                        <li>Fostered collaboration between academic and conservation groups</li>
+                    </ul>
+                </div>
+
+                <div class="skills">
+                    <strong>Relevant Skills:</strong> Fusion 360 CAD, Topology Optimization, Sustainable Design
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VEX Robotics Project (Images Right, Text Left) -->
+    <section id="vex-robotics" class="project">
+        <div class="project-content reverse">
+            <div class="image-gallery">
+                <div class="image-container">
+                    <div class="image-placeholder">vex-robotics-1.jpg</div>
+                    <div class="image-caption">Preliminary CAD for Worlds 2025</div>
+                </div>
+                <div class="image-container">
+                    <div class="image-placeholder">vex-robotics-2.jpg</div>
+                    <div class="image-caption">Completed Worlds Robot with dyed Polycarbonate</div>
+                </div>
+            </div>
+            
+            <div class="project-text">
+                <h2>VEX Robotics</h2>
+                <p class="project-subtitle">Competitive Robotics Engineering</p>
+                
+                <div class="project-section">
+                    <h3>Problem</h3>
+                    <ul>
+                        <li>Competitive robotics requires innovative mechanical systems that are lightweight and reliable</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Solution</h3>
+                    <ul>
+                        <li>Designed entire robots in CAD with focus on efficiency, compactness, and match readiness</li>
+                        <li>Created custom polycarbonate gussets, brackets, and machining processes to reduce robot weight by 30% while increasing agility</li>
+                        <li>Engineered a multi-axis spin-reversing catapult mechanism</li>
+                        <li>Prototyped and iterated based on field-testing</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Impact</h3>
+                    <ul>
+                        <li>Robots achieved 2×World Qualifications; 4×Tournament Championships; 6×Skills Championships, 2×Excellence Awards</li>
+                        <li>Advanced team's engineering capabilities while contributing technical expertise</li>
+                    </ul>
+                </div>
+
+                <div class="skills">
+                    <strong>Relevant Skills:</strong> Fusion 360 CAD, Mechanical Design, Competitive Engineering
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Truck Fairing Project (Images Left, Text Right) -->
+    <section id="truck-fairing" class="project">
+        <div class="project-content">
+            <div class="image-gallery">
+                <div class="image-container">
+                    <div class="image-placeholder">truck-fairing-1.jpg</div>
+                    <div class="image-caption">Telescoping Rod showing maximum turn angle of 80 degrees</div>
+                </div>
+                <div class="image-container">
+                    <div class="image-placeholder">truck-fairing-2.jpg</div>
+                    <div class="image-caption">Particle Flow - Control</div>
+                </div>
+                <div class="image-container">
+                    <div class="image-placeholder">truck-fairing-3.jpg</div>
+                    <div class="image-caption">Particle Flow - Hybrid Fairing</div>
+                </div>
+            </div>
+            
+            <div class="project-text">
+                <h2>Hybrid Truck Fairing</h2>
+                <p class="project-subtitle">Reducing Drag in Tractor–Trailer Gap</p>
+                
+                <div class="project-section">
+                    <h3>Problem</h3>
+                    <ul>
+                        <li>Tractor–trailer gap creates air vortices and turbulence, lowering efficiency</li>
+                        <li>Current rigid fairings cannot fully cover gaps without limiting trailer turning</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Solution</h3>
+                    <ul>
+                        <li>Created truck + trailer CAD models with pivoting trailer geometry</li>
+                        <li>Designed hybrid fairing consisting of elastic fabric to cover the gap and telescoping rods with ball and socket joints for support</li>
+                        <li>Ran CFD simulations in SimScale comparing control vs. hybrid model</li>
+                        <li>Quick-deploy system: only 4 attachment points for installation/removal</li>
+                    </ul>
+                </div>
+
+                <div class="project-section">
+                    <h3>Impact</h3>
+                    <ul>
+                        <li>Achieved 36% reduction in drag coefficient (0.01591 → 0.01168)</li>
+                        <li>Proposed scalable solution to reduce fuel use and emissions in trucking industry while EVs are still in development</li>
+                    </ul>
+                </div>
+
+                <div class="skills">
+                    <strong>Relevant Skills:</strong> Fusion 360 CAD, Computational Fluid Dynamics (SimScale), Aerodynamics, Mechanical Design
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Aditya Prabhu. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project').forEach(project => {
+            observer.observe(project);
+        });
+    </script>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
